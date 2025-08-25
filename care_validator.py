@@ -1,13 +1,13 @@
 
 import streamlit as st
-import fitz  # fitz
+import PyMuPDF  # PyMuPDF
 import pandas as pd
 import re
 import io
 
 # Function to extract care instructions from a PDF file
 def extract_care_instructions(pdf_file):
-    doc = fitz.open(stream=pdf_file.read(), filetype="pdf")
+    doc = PyMuPDF.open(stream=pdf_file.read(), filetype="pdf")
     care_text = ""
     for page in doc:
         text = page.get_text()
